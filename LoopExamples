@@ -1,0 +1,271 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LOOPS_
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //WhileTest();
+            //ForLoopTest();
+            //HW2();
+            //Sample();
+            //Lab5();
+            MiniGame1();
+
+        }
+        //☺§↔§☺
+        /*do {
+          int num
+                  cw "nummber"
+          string response = cr();
+          bool ok -int.tryparse(response, out num)
+          if(ok)
+          break;
+          else
+          cw "bad input"
+          }
+          while (!ok)
+          return num;
+          */
+        static void MiniGame1()
+        {
+            string name,weapon;
+            double yes;
+            //Creates a list of weapons to choose from later
+            string[] Weapons = {"Falchion", "Longsword", "Shortsword", "Rapier", "Dagger", "Club",
+                "Sling", "Fists", "Halberd", "Glaive", "Pike", "Greatsword", "Battleaxe", "Warhammer",
+                "Greataxe", "Hammer", "Handaxe", "Lance", "Longbow", "Shortbow", "Light Crossbow", "Heavy Crossbow",
+                "Darts", "Nagitana", "Katana", "Yumi Bow", "Magic", "Frumpkin", "Shuriken"};
+//Greets the player and asks them to input their name
+Console.WriteLine("Greetings (most likely) human. I desire to play a little game with you. Throughout this game, I will act as your guide and your narrator."
+                + " First, to begin the game, please do this:");
+
+            Console.WriteLine("Enter Your Name: ");
+            //Insert a name here
+            name = Console.ReadLine();
+
+            Console.WriteLine("Thank you. It is  pleasure to meet you, " + name + ". However, this is only the beginning. The tale will be told through using yes" +
+                " or no questions so that the game can remain simple. Yes in this game will be answered as " + 1 + " And no will be answered as " + 2 + ". Understood?");
+            //asks the user to input 1 or 2 tot answer
+            Console.WriteLine("Y/N? (1/2)");
+            //an error message in case someone inputs something other than 1 or 2
+            while (!double.TryParse(Console.ReadLine(), out yes))
+            {
+                Console.WriteLine("I guess you thought you were being clever by not typing in a correct answer. Try again buddy.");
+            }
+
+
+            switch (yes)
+            {
+                //the message displayed when th player enters "1"
+                case 1:
+                Console.WriteLine("Excellent. I'm glad you understand the instructions. " +
+                    "Unfortunatley, our game must end soon.");
+                    break;
+                //the message displayed when the player enters "2"
+                case 2:
+                Console.WriteLine("Must I repeat EVERYTHING I have just said to you?! " +
+                    "Look...just... re-read those lines of text up there, and then you should be all caught up. " +
+                    " Alrighty! Caught up? Yes? No? Either way, let's end the game.");
+
+                    break;
+                //the message displayed when any other number is chosen.
+                default:
+                    Console.WriteLine("Oh joy. You're going to be one of THOSE players that thinks that they're SO clever."
+                        + " *sigh* Well, we gotta move on at this point. Let's end the game quickly.");
+                    break;
+            }
+
+            Console.WriteLine("But, before we end this, choose a weapon to take with you for the future.");
+            Console.WriteLine();
+            Console.WriteLine("Type in Your choice of a medieval era weapon, or press 'Enter' to just take all of them.");
+            Console.WriteLine();
+            weapon = Console.ReadLine();
+
+            for (int n = 0; n < Weapons.Length; n++)
+            {
+                if (Weapons[n].IndexOf(weapon) > -1)
+                {
+                    Console.WriteLine("You took these weapons: " + Weapons[n]);
+
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Well you have your trusty weapon(s). It is one of the few comforts you have as you venture forth into the woods.");
+            Console.WriteLine("Your Journey ends here for now " + name + ". However, the adventure has only just begun.");
+            Console.ReadLine();
+
+        }
+
+        static void Lab5()
+        {
+            string[] MightyNein = { "Fjord of the Mighty Nein", "Jester of the Mighty Nein", "Beauregard of the Mighty Nein", "Caleb of the Mighty Nein", "Nott of the Mighty Nein", "Caduceus of the Mighty Nein", "Yasha of the Mighty Nein", "Mollymauk of the Mighty Nein", "Frumpkin of the Mighty Nein" };
+            string[] Weapons = {"Falchion", "Lollipop", "Bo staff", "Magic", "Crossbow", "Beetles", "Greatsword", "Scimitars", "Blep" };
+            string strSearch;
+
+            //prompt user
+            Console.WriteLine("Type a name to search for from the list of adventurers in the Mighty Nein to learn their signiature ability: ");
+            Console.WriteLine();
+            Console.WriteLine("List of the Mighty Nein: Fjord, Jester, Beauregard, Caleb, Nott, Caduceus, Mollymauk, Yasha, and Frumpkin.");
+            Console.WriteLine();
+            Console.WriteLine("If you desire to see all of the group's signiature skills, type in: Mighty Nein.");
+            Console.WriteLine();
+            strSearch = Console.ReadLine();
+
+            for (int n = 0; n < MightyNein.Length; n++)
+            {
+                if(MightyNein[n].IndexOf(strSearch) > -1)
+                {
+                    Console.WriteLine(MightyNein[n] + " -> " + Weapons[n]);
+                }
+            }
+
+            Console.ReadLine();
+        }
+
+        static void Sample()
+        {
+            //Calls for the user to input the length of the sequence
+            Console.WriteLine("Enter a length for the Fibonacci Seqenece.");
+            int fSeq = Convert.ToInt32(Console.ReadLine());
+
+            //creates an array to become the length of fSeq that the user inputted
+            int[] arrFabSeq = new int[fSeq + 1];
+
+            //creates a for loop to run the length of fSeq
+            for (int f = 0; f <= fSeq; f++)
+            {
+                //creates the starting number of 0
+                if (f < 2)
+                {
+                    arrFabSeq[f] = f;
+                    Console.WriteLine(f);
+                }
+                //calls upon the array to grab the last last number and the last number to make a new number to become the new last number
+                else
+                {
+                    arrFabSeq[f] = arrFabSeq[f - 1] + arrFabSeq[f - 2];
+                    Console.WriteLine(arrFabSeq[f]);
+                }
+             
+            }
+            Console.WriteLine("Press 'Enter' to Exit...");
+            Console.ReadLine();
+        }
+
+        static void HW2()
+        {
+            int fSeq, lastlastnum1;
+            int lastnum2, tempnum3;
+
+            //Asks the user to input the amount of times the F Seq will be run through
+            Console.WriteLine("Enter an integer to determine how many times the fibonacci sequence will be run through: ");
+            fSeq = Convert.ToInt32(Console.ReadLine());
+            //lastlastnum holds the number from the beginning of the loop
+            lastlastnum1 = 0;
+            //lastnum holds the number from the current part of the loop
+            lastnum2 = 1;
+            //tempnum becomes the number for the loop
+            tempnum3 = 0;
+
+            Console.WriteLine("<-------------------------------------------->");
+            Console.WriteLine("The Fibonacci sequence up to the number you entered is: ");
+
+            //Takes the number the user inoutted and runs the loop a number of times equal to the input
+            for (int x = 0; x <= fSeq; x++)
+            {
+                //sets the first number as 0
+                if (x < 2)
+                {
+
+                    Console.WriteLine(x);
+                }
+                //executes the Fibonacci sequence
+                else
+                {
+                    //calls for lastlastnum1 and lastnum2 and adds them together
+                    Console.WriteLine(lastnum2 + lastlastnum1);
+                    //increments each number by 1
+                    tempnum3 = lastlastnum1;
+                    lastlastnum1 = lastnum2;
+                    lastnum2 = tempnum3 + lastlastnum1;
+
+                }
+
+            }
+            Console.WriteLine("Press 'Enter' to exit the program.");
+            Console.ReadLine();
+        }
+
+        static void ForLoopTest()
+        {
+            int Num1;
+            int Num2;
+            int Num3;
+
+            Console.WriteLine("Enter an integer: ");
+            Num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter an integer: ");
+            Num2 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter an integer: ");
+            Num3 = Convert.ToInt32(Console.ReadLine());
+            for (int w = Num1; w <= Num2; w+= Num3)
+    
+            {
+              Console.WriteLine("The number is currently: " + w);    
+            }
+
+            Console.ReadLine();
+        }
+
+        static void WhileTest()
+    {
+           
+            //declarations
+            int nLargest;
+            int nSmallest;
+            int nCurrent;
+            string strEntry;
+
+            //first integer
+            Console.WriteLine("Enter an integer: ");
+            nLargest = nSmallest = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter another integer or Q to Quit.");
+            strEntry = Console.ReadLine();
+
+            //loop like a coaster
+            while (strEntry != "Q")
+            {
+                nCurrent = Convert.ToInt32(strEntry);
+
+                //check to see if input should replace largest or smallest number
+                if(nCurrent > nLargest)
+                {
+                    nLargest = nCurrent;
+                }
+                else if (nCurrent < nSmallest)
+                {
+                    nSmallest = nCurrent;
+                }
+
+                Console.WriteLine("Enter another integer or Q to Quit.");
+                strEntry = Console.ReadLine();
+
+            }
+
+            Console.WriteLine("The largest value you entered was " + nLargest);
+            Console.WriteLine("The smallest value you entered was " + nSmallest);
+
+            Console.ReadLine();
+        }
+    }
+}
+  
