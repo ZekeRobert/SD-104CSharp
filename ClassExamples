@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassesLikeInDnD
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a name for your Hero: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Which of these do you want to be your primary weapon? Sword (S), or Synthread (T)");
+            string choice = Console.ReadLine();
+
+            if (choice == "S")
+            {
+                Console.WriteLine("You now wield the sword.");
+            }
+            else if (choice == "T")
+            {
+                Console.WriteLine("You now wear a pair of Synthread gloves.");
+            }
+            else
+            {
+                Console.WriteLine("That choice is invalid. It seems you'll have to do without.");
+            }
+
+            Console.WriteLine("Which gun shall you take for your secondary weapon? 1911 Pistol(P), or SmartFire© Pistol(F)");
+            string choice2 = Console.ReadLine();
+
+            if (choice2 == "P")
+            {
+                Console.WriteLine("You now have a 1911 pistol as your sidearm.");
+            }
+            else if (choice2 == "F")
+            {
+                Console.WriteLine("Congratulations! You are now the proud owner of a SmartFire© Pistol!");
+            }
+            else
+            {
+                Console.WriteLine("Weapon choice invalid. You no longer have access to sidearms.");
+            }
+
+            Console.WriteLine("Very well, Let's get this started.");
+            Hero myHero = new Hero("90", choice, choice2, "Health up", "Default", "10%", "double jump", "None", "100", "10");
+            Guards Drunks = new Guards("4", "Bottle", "10", "6", "None");
+            Villain stacheTwirl = new Villain("20", "35", "Sharp 'stache", "Twirl stache", "15", "1st", "Moustache rave");
+            Console.WriteLine(myHero.ToString() + ", " + Drunks.ToString() + ", " + stacheTwirl.ToString());
+        }
+        
+    }
+}
