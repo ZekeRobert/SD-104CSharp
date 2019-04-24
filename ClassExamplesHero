@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassesLikeInDnD
+{
+    class Hero
+    {
+        string CurHealth;
+        string Weapon;
+        string Gun;
+        string Upgrades;
+        string Appearance;
+        string Database;
+        string Abilities;
+        string Ally;
+        string MaxHealth;
+        string Damage;
+
+        public Hero(string curHealth, string weapon, string gun, string upgrades, string appearance, string database, string abilities, string ally, string maxHealth, string damage)
+        {
+            CurHealth = curHealth;
+            Weapon = weapon;
+            Gun = gun;
+            Upgrades = upgrades;
+            Appearance = appearance;
+            Database = database;
+            Abilities = abilities;
+            Ally = ally;
+            MaxHealth = maxHealth;
+            Damage = damage;
+        }
+
+        public override string ToString()
+        {
+            return Weapon + " " + Gun; 
+        }
+
+    }
+}
