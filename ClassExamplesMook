@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassesLikeInDnD
+{
+    class Guards
+    {
+        string GuardCurHealth;
+        string GuardWeapon;
+        string GuardMaxhealth;
+        string GuardDamage;
+        string GuardSkills;
+
+        public Guards(string guardCurHealth, string guardWeapon, string guardMaxhealth, string guardDamage, string guardSkills)
+        {
+            GuardCurHealth = guardCurHealth;
+            GuardWeapon = guardWeapon;
+            GuardMaxhealth = guardMaxhealth;
+            GuardDamage = guardDamage;
+            GuardSkills = guardSkills;
+        }
+
+        public override string ToString()
+        {
+            return GuardWeapon + " " + GuardSkills;
+        }
+
+    }
+}
