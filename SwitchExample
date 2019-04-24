@@ -1,0 +1,94 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace A_Hot_Date
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // get the day of the week from the user
+            int hoursToWeekend;
+            string dayOfWeek = GetInput("Yo, could ya tell me what day of da week it is? \n"); 
+
+            //switch on that day
+            //set a variable with the number of hours between midnight and he weekend
+            switch (dayOfWeek.ToLower()) //This SHOULD give the user a response after they type in a number for the day of the week.
+            {
+                case "sunday":
+                    hoursToWeekend = 0;
+                    Console.WriteLine("Sunday, the last bit of the weekend to enjoy before Monday rolls around, " +
+                        "although you are technically the start of the week.");
+                    break;
+                case "monday":
+                    hoursToWeekend = 120;
+                    Console.WriteLine("Oh joy. It is Monday. I must quote a famous orange cat: 'I hate Mondays.'");
+                    break;
+                case "tuesday":
+                    hoursToWeekend = 96;
+                    Console.WriteLine("Ah, Tuesday, you are basically Monday's twin brother, " +
+                        "but people like you a tad better since you are later in the week.");
+                    break;
+                case "wednesday":
+                    hoursToWeekend = 72;
+                    Console.WriteLine("It is Wednesday my dudes.");
+                    break;
+                case "thursday":
+                    hoursToWeekend = 48;
+                    Console.WriteLine("IT'S THURSDAY! THAT MEANS CRITICAL ROLE WILL BE ON TONIGHT!");
+                    break;
+                case "friday":
+                    hoursToWeekend = 24;
+                    Console.WriteLine("'Tis Friday, that means that the weekend draws near, and poepl await the moment" +
+                        " work ends in order to start their weekend festivities.");
+                    break;
+                case "saturday":
+                    hoursToWeekend = 0;
+                    Console.WriteLine("IT'S THE WEEKEND! TIME TO UTILIZE IT TO DO CODING " +
+                        "AND OTHERWISE SPEND IT RELAXING!");
+                    break;
+                default:
+                    hoursToWeekend = -1;
+                    Console.WriteLine("Unfortunately that is not a day of the week according to the Gregorian Calender.");
+                    break;
+            }
+            //after the switch
+            //if the number of hours is 0, print: It's the Weekend!
+            if (hoursToWeekend > 0)
+            {
+                Console.WriteLine("Oh, we also have to wait " + hoursToWeekend + " hours before the weekend begins.");
+            }
+            else if (hoursToWeekend == 0)
+            {
+                Console.WriteLine("'TIS THE WEEKEND!");
+            }
+            //otherwise print the number
+        } //this is the end of my Main method
+
+        static int GetNumbah(string prompt)
+        {
+
+            int usahNumbah;
+            string strNumbah = GetInput(prompt);
+            while (!Int32.TryParse(strNumbah, out usahNumbah))
+            {
+                Console.WriteLine("Dat ain't a numbah. Try again pally.");
+                strNumbah = GetInput(prompt);
+            } // end of testing for a valid number while loop
+            return usahNumbah;
+        } // end of GetNumbah method.
+
+        public static string GetInput(string prompt)
+        {
+            Console.Write(prompt);
+            string str = Console.ReadLine();
+            return str;
+        } //end of the GetInput method
+
+
+    }
+}
+
