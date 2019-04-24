@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassesLikeInDnD
+{
+    class Villain
+    {
+        string VilCurHealth;
+        string VilMaxHealth;
+        string VilWeapon;
+        string VilAbilities;
+        string VilDamage;
+        string VilForm;
+        string VilSpecialAttack;
+
+        public Villain(string vilCurHealth, string vilMaxHealth, string vilWeapon, string vilAbilities, string vilDamage, string vilForm, string vilSpecialAttack)
+        {
+            VilCurHealth = vilCurHealth;
+            VilMaxHealth = vilMaxHealth;
+            VilWeapon = vilWeapon;
+            VilAbilities = vilAbilities;
+            VilDamage = vilDamage;
+            VilForm = vilForm;
+            VilSpecialAttack = vilSpecialAttack;
+        }
+
+        public override string ToString()
+        {
+            return VilWeapon + " " + VilSpecialAttack;
+        }
+
+    }
+
+}
